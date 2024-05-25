@@ -1,8 +1,10 @@
+import 'package:booksapp/core/utils/assets.dart';
 import 'package:booksapp/core/utils/styles.dart';
 import 'package:booksapp/features/home/presentation/views/widgets/custom_app_bar_view.dart';
 import 'package:flutter/material.dart';
 
 
+import 'customBestSellerItem.dart';
 import 'featured_list_books.dart';
 
 class HomeViewBody extends StatelessWidget{
@@ -20,11 +22,13 @@ class HomeViewBody extends StatelessWidget{
         FeaturedListBooksView(),
         SizedBox(height: 50,),
         Text('Best Seller' , style: Styles.titleMeduim),
-         
-   
+        SizedBox(height: 20,),
+        FeaturedBestSellerItem()
        ],
      ),
    );
   }
 }
+
+
 
