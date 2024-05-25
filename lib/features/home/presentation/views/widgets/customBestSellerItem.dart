@@ -4,7 +4,7 @@ import 'package:booksapp/core/utils/assets.dart';
 import 'package:booksapp/core/utils/styles.dart';
 import 'package:booksapp/costants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 import 'book_rating.dart';
 
@@ -20,7 +20,7 @@ class FeaturedBestSellerItem extends StatelessWidget {
       child: Row(
         children: [
           AspectRatio(
-     aspectRatio: 2.5 /4,
+     aspectRatio: 3.25 /4,
      child: Padding(
        padding: const EdgeInsets.only(right: 24),
        child: Container(
@@ -32,22 +32,23 @@ class FeaturedBestSellerItem extends StatelessWidget {
           fit:BoxFit.fill )),
        ),
      ),
-   ),
+     ),
      Expanded(
        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children:  [
+          const SizedBox(height: 5,),
            SizedBox(
             width: MediaQuery.of(context).size.width*.5,
              child:  Text('Harry Potter and the Globet Of Fire', 
-                   style: Styles.textStyle20.copyWith(fontFamily: kGtSectraFine),
+                   style: Styles.textStyle22.copyWith(fontFamily: kGtSectraFine),
                    overflow: TextOverflow.ellipsis,
                    maxLines: 2,
              )
            ),
            const SizedBox(height: 3,),
            const Text('JK. Rowling', style: Styles.textStyle14,),
-           const SizedBox(height: 3,),
+           const SizedBox(height: 5,),
            Row(
             mainAxisAlignment: MainAxisAlignment.start,
              children: [
