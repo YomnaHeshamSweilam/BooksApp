@@ -1,8 +1,8 @@
 import 'package:booksapp/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class CustomListItemBuilder extends StatelessWidget{
-  const CustomListItemBuilder({super.key});
+class CustomBookImage extends StatelessWidget{
+  const CustomBookImage({super.key});
   
   @override
   Widget build(BuildContext context) {
