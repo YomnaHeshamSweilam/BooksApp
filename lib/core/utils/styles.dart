@@ -38,7 +38,6 @@ abstract class Styles{
     fontSize: 30,
     fontWeight: FontWeight.w900,
     fontFamily: kGtSectraFine,
-    letterSpacing: 1.2,
   );
   
 

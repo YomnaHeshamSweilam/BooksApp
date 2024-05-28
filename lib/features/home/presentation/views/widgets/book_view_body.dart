@@ -1,7 +1,11 @@
 
 
+import 'package:booksapp/core/utils/styles.dart';
+import 'package:booksapp/features/home/presentation/views/widgets/book_actions.dart';
+import 'package:booksapp/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booksapp/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
+import 'custom_book_details_appBar.dart';
 
 class BookViewBody extends StatelessWidget{
   const BookViewBody({super.key});
@@ -19,7 +23,17 @@ class BookViewBody extends StatelessWidget{
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width* .17 ),
             child: const CustomBookImage(),
-          )
+          ),
+          const SizedBox(height: 43,),
+           Text('The Jungle Book', style: Styles.textStyle30.copyWith(fontWeight: FontWeight.normal),),
+           const SizedBox(height: 6,),
+           Opacity(
+            opacity: .7,
+            child: Text('Rudyard Kipling', style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic,fontWeight: FontWeight.w500))),
+           const SizedBox(height: 18,),
+          const BookRating(mainAxisAlignment: MainAxisAlignment.center,),
+          const SizedBox(height: 37,),
+          const BookAction()
        ],
      ),
    );
@@ -27,18 +41,3 @@ class BookViewBody extends StatelessWidget{
   }
 }
 
-class CustomBookDetailsAppBar extends StatelessWidget{
-  const CustomBookDetailsAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(onPressed: (){}, icon: const Icon(Icons.close)),
-        IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart_outlined))
-      ]
-    );
-  }
-
-}
