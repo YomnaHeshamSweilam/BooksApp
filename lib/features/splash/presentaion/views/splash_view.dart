@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/splash_view_page.dart';
 
-
-
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
@@ -11,4 +9,3 @@ class SplashView extends StatelessWidget {
     return const SplashPage();
   }
 }
-

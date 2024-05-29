@@ -13,21 +13,19 @@ class BooksApp extends StatelessWidget {
   const BooksApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
+    return MaterialApp.router(
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor
-      ,textTheme:GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme,) ),
-      
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
+          )),
     );
-   
   }
 }
 
-
-
 // #EA8F79  pink
 // #FFFFFF
-// #EAEAEA grey 
+// #EAEAEA grey
 // #273238  dark
