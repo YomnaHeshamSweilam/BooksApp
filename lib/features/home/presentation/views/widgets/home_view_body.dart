@@ -5,7 +5,6 @@ import 'package:booksapp/features/home/presentation/views/widgets/custom_app_bar
 import 'package:flutter/material.dart';
 
 
-import 'customBestSellerItem.dart';
 import 'featured_list_books.dart';
 
 class HomeViewBody extends StatelessWidget{
@@ -42,21 +41,6 @@ class HomeViewBody extends StatelessWidget{
       ],
     );
    
-   return Padding(
-     padding: const EdgeInsets.symmetric(horizontal: 24),
-     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-       children: const [
-         CustomAppBar(),
-        FeaturedListBooksView(),
-        SizedBox(height: 50,),
-        Text('Best Seller' , style: Styles.titleMeduim),
-        SizedBox(height: 20,),
-        BestSellerListView(),
-        
-       ],
-     ),
-   );
   }
 }
 
