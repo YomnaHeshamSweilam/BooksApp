@@ -12,10 +12,11 @@ class CustomTextField extends StatelessWidget {
     decoration: InputDecoration(
      focusColor: Colors.white,
      enabledBorder: OutlineInputBorder(
-       borderSide: BorderSide(color: Colors.white),
+       borderSide: const BorderSide(color: Colors.white),
        borderRadius: BorderRadius.circular(12)),
      hintText: 'Search',
-     suffixIcon: Icon(FontAwesomeIcons.magnifyingGlass)
+     suffixIcon: const Opacity(opacity: .7,
+     child: Icon(FontAwesomeIcons.magnifyingGlass))
     ),
     );
   }
