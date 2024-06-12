@@ -10,7 +10,7 @@ class BookModel extends Equatable {
   final String? id;
   final String? etag;
   final String? selfLink;
-  final VolumeInfo? volumeInfo;
+  final VolumeInfo volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
@@ -20,37 +20,34 @@ class BookModel extends Equatable {
     this.id,
     this.etag,
     this.selfLink,
-    this.volumeInfo,
+    required this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
   });
 
-  factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
-        kind: json['kind'] as String?,
-        id: json['id'] as String?,
-        etag: json['etag'] as String?,
-        selfLink: json['selfLink'] as String?,
-        volumeInfo: json['volumeInfo'] == null
+  factory BookModel.fromJson(jsonData) => BookModel(
+        kind: jsonData['kind'] as String?,
+        id: jsonData['id'] as String?,
+        etag: jsonData['etag'] as String?,
+        selfLink: jsonData['selfLink'] as String?,
+        volumeInfo: VolumeInfo.fromJson(jsonData['volumeInfo'] as Map<String, dynamic>),
+        saleInfo: jsonData['saleInfo'] == null
             ? null
-            : VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
-        saleInfo: json['saleInfo'] == null
+            : SaleInfo.fromJson(jsonData['saleInfo'] as Map<String, dynamic>),
+        accessInfo: jsonData['accessInfo'] == null
             ? null
-            : SaleInfo.fromJson(json['saleInfo'] as Map<String, dynamic>),
-        accessInfo: json['accessInfo'] == null
+            : AccessInfo.fromJson(jsonData['accessInfo'] as Map<String, dynamic>),
+        searchInfo: jsonData['searchInfo'] == null
             ? null
-            : AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
-        searchInfo: json['searchInfo'] == null
-            ? null
-            : SearchInfo.fromJson(json['searchInfo'] as Map<String, dynamic>),
+            : SearchInfo.fromJson(jsonData['searchInfo'] as Map<String, dynamic>),
       );
-
   Map<String, dynamic> toJson() => {
         'kind': kind,
         'id': id,
         'etag': etag,
         'selfLink': selfLink,
-        'volumeInfo': volumeInfo?.toJson(),
+        'volumeInfo': volumeInfo.toJson(),
         'saleInfo': saleInfo?.toJson(),
         'accessInfo': accessInfo?.toJson(),
         'searchInfo': searchInfo?.toJson(),

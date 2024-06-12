@@ -10,7 +10,7 @@ class ApiService
  ApiService(this._dio);
  Future <Map<String , dynamic>> get({required String endpoints})
  async{
-   var response = await _dio.get('$base64Url$endpoints');
+   var response = await _dio.get('$_baseUrl$endpoints');
   return response.data;
  }
 }
