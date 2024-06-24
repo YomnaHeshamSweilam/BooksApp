@@ -20,7 +20,7 @@ class VolumeInfo extends Equatable {
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks imageLinks;
+  final ImageLinks? imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -48,34 +48,36 @@ class VolumeInfo extends Equatable {
     this.canonicalVolumeLink,
   });
 
-  factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-        title: json['title'] as String?,
-        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
-        publisher: json['publisher'] as String?,
-        publishedDate: json['publishedDate'] as String?,
-        description: json['description'] as String?,
-        industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
+  factory VolumeInfo.fromJson(Map<String, dynamic> jsonData) => VolumeInfo(
+        title: jsonData['title'] as String?,
+        authors: (jsonData['authors'] as List<dynamic>?)?.cast<String>(),
+        publisher: jsonData['publisher'] as String?,
+        publishedDate: jsonData['publishedDate'] as String?,
+        description: jsonData['description'] as String?,
+        industryIdentifiers: (jsonData['industryIdentifiers'] as List<dynamic>?)
             ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
             .toList(),
-        readingModes: json['readingModes'] == null
+        readingModes: jsonData['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
-                json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as int?,
-        printType: json['printType'] as String?,
-        categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
-        maturityRating: json['maturityRating'] as String?,
-        allowAnonLogging: json['allowAnonLogging'] as bool?,
-        contentVersion: json['contentVersion'] as String?,
-        panelizationSummary: json['panelizationSummary'] == null
+                jsonData['readingModes'] as Map<String, dynamic>),
+        pageCount: jsonData['pageCount'] as int?,
+        printType: jsonData['printType'] as String?,
+        categories: (jsonData['categories'] as List<dynamic>?)?.cast<String>(),
+        maturityRating: jsonData['maturityRating'] as String?,
+        allowAnonLogging: jsonData['allowAnonLogging'] as bool?,
+        contentVersion: jsonData['contentVersion'] as String?,
+        panelizationSummary: jsonData['panelizationSummary'] == null
             ? null
             : PanelizationSummary.fromJson(
-                json['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks: ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
-        language: json['language'] as String?,
-        previewLink: json['previewLink'] as String?,
-        infoLink: json['infoLink'] as String?,
-        canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+                jsonData['panelizationSummary'] as Map<String, dynamic>),
+        imageLinks: jsonData['imageLinks'] == null
+            ? null
+            :  ImageLinks.fromJson(jsonData['imageLinks'] as Map<String, dynamic>),
+        language: jsonData['language'] as String?,
+        previewLink: jsonData['previewLink'] as String?,
+        infoLink: jsonData['infoLink'] as String?,
+        canonicalVolumeLink: jsonData['canonicalVolumeLink'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -94,7 +96,7 @@ class VolumeInfo extends Equatable {
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
         'panelizationSummary': panelizationSummary?.toJson(),
-        'imageLinks': imageLinks.toJson(),
+        'imageLinks': imageLinks?.toJson(),
         'language': language,
         'previewLink': previewLink,
         'infoLink': infoLink,

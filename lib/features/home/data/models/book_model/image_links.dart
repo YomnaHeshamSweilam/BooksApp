@@ -6,9 +6,9 @@ class ImageLinks extends Equatable {
 
   const ImageLinks({required this.smallThumbnail, required this.thumbnail});
 
-  factory ImageLinks.fromJson(Map<String, dynamic> json) => ImageLinks(
-        smallThumbnail: json['smallThumbnail'] as String,
-        thumbnail: json['thumbnail'] as String,
+  factory ImageLinks.fromJson(Map<String, dynamic> jsonData) => ImageLinks(
+        smallThumbnail: jsonData['smallThumbnail'] as String,
+        thumbnail: jsonData['thumbnail'] as String,
       );
 
   Map<String, dynamic> toJson() => {

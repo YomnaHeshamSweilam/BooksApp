@@ -24,7 +24,7 @@ class BooksApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context)=> FeaturedBooksCubit(gitIt.get<HomeRepoImple>())..getFeaturedBooks(),
         ),
-        BlocProvider(create: (context)=> NewestBooksCubit(gitIt.get<HomeRepoImple>()))
+        BlocProvider(create: (context)=> NewestBooksCubit(gitIt.get<HomeRepoImple>())..getNewestBooks())
 
       ],
       child: MaterialApp.router(

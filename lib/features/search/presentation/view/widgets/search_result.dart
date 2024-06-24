@@ -11,7 +11,7 @@ class SearchResultView extends StatelessWidget {
         itemCount: 10,
         itemBuilder: ((context, index) => const Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
-              child: FeaturedBestSellerItem(),
+              // child: FeaturedNewestItem(),
             )));
   }
 }
